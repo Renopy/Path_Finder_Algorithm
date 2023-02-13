@@ -1,15 +1,15 @@
 # Path_Finder_Algorithm
 
-#About
+# About
 
-#Description
-
-
-#Example
+# Description
 
 
+# Example
 
-#References
+
+
+# References
 
 
 
