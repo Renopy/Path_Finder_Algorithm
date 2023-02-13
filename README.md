@@ -24,7 +24,9 @@ The algorithm can be easily used as following steps:
 
 1) import the package
 
-#* import PFA
+'''python
+import PFA
+'''
 
 
 
