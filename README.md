@@ -22,22 +22,69 @@ Because PFA is stochastic, like many other meta-heuristic algorithms of a simila
 
 The algorithm can be easily used as following steps:
 
-1) Import the package
+1) Import the packages
 
 ```python
 from PFA import Pathfinder
+import numpy as np
+import pandas as pd
 ```
-2) Define a Loss Function 
+2) Prepare the input data
+```python
+Excel_cal = pd.read_excel("../Cal.xlsx")
+
+Excel_test = pd.read_excel("../test.xlsx")
+
+# choose the keys for the input variables (X) and observation
+var_keys = [ 'X1' , 'X2' ] 
+obs_key = 'obs'
+
+x_train = Excel_cal[ var_keys ] 
+x_test = Excel_test[ var_keys ] 
+
+
+obs_train = Excel_cal[ obs_key ] 
+obs_test = Excel_test[ obs_key ]
+```
+
+3) Define a model and Loss Function 
 
 ```python
-def Loss(solution):
+
+def model_mlr(w , x):
+    # w =  [ w[0]  ,  1]
+    # w =  [   0  , w[0] ]
+    out =  numpy.array(numpy.dot(    w[1:]  , numpy.transpose( x)) ) +w[0]
+    return out
+
+def fitness_function(Solution):
+
+    wx =  model_mlr(w =Solution  ,   x = x_train  )
+
+    RMSE = numpy.mean(wx-obs_train)**0.5
+
+    
+    return  RMSE
+```
+
+4) build the model
+
+
+```python
+initialize_iteration = 100
+num_of_parameters = 3  # Here we need 3 parameters to run the model correctly 
+modle = Pathfinder.model(fitness_function  , num_of_parameters   , initialize_iteration  , PFA_iteration ,alpha =1  , beta=1 , converging_threshold = 0.001)
+```
+5) run the model
+
+
+```python
+model.fit() 
 ```
 
 
 
-
-
-# References
+## References
 [^1]: Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
 [^2]: Nosratpour, Reza, Majid Rahimzadegan, and Niloufar Beikahmadi. "Introducing a merged precipitation satellite model using satellite precipitation products, land surface temperature, and precipitable water vapor." Geocarto International (2022): 1-31.
 
