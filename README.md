@@ -2,7 +2,7 @@
 Pathfinder Algorithm (PFA) is a swarm-based meta-heuristic technique which is employed to solve optimization problems of various structures. This technique simulates the leadership hierarchy of swarming to locate the best food source or prey, which is inspired by the group movements of various animal species.
 
 # Description
-The Pathfinder Algorithm (PFA), a swarm-based optimization algorithm inspired by the way in which animals work together to identify the best food sources, was introduced by Yapici and Cetinkaya in 2019. The collection of solutions for an n-dimensional space problem in this method represents a herd of animals, whose motions are controlled by the leader and other members. The members of this algorithm are updated using the following equation during each of its N iterations: 
+The Pathfinder Algorithm (PFA) inspired by the way in which animals work together to identify the best food sources was introduced by Yapici and Cetinkaya in 2019. The collection of solutions for an n-dimensional space problem in this method represents a herd of animals, whose motions are controlled by the leader and other members. The members of this algorithm are updated using the following equation during each of its N iterations: 
 
  ![image](https://user-images.githubusercontent.com/93834390/218518989-779f71fb-c341-45d6-a811-80845d7f8dce.png)
  
@@ -15,7 +15,7 @@ xi represents the position vector of the i-th member, xj the position vector of 
 
 ![image](https://user-images.githubusercontent.com/93834390/218519576-42c72fc9-3e4d-4573-9665-c272f505d96e.png)
 
-where K_Max is the total number of repetitions, Dij is the distance between two members, u1 and u2 are random vectors generated between -1 and 1, and r3 is a vector of random numbers between zero and one.
+where K_Max is the total number of repetitions, Dij is the distance between two members, u1 and u2 are random vectors generated between -1 and 1, and r3 is a vector of random numbers between zero and one[^1].
 
 # Example
 Because PFA is stochastic, like many other meta-heuristic algorithms of a similar nature, each time you run it, you will have a slightly different output. The output is the best solution for which the minimum Loss Function was obtained.
@@ -38,8 +38,8 @@ def Loss(solution):
 
 
 # References
-1. Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
-2. Nosratpour, Reza, Majid Rahimzadegan, and Niloufar Beikahmadi. "Introducing a merged precipitation satellite model using satellite precipitation products, land surface temperature, and precipitable water vapor." Geocarto International (2022): 1-31.
+[^1]: Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
+[^2]: Nosratpour, Reza, Majid Rahimzadegan, and Niloufar Beikahmadi. "Introducing a merged precipitation satellite model using satellite precipitation products, land surface temperature, and precipitable water vapor." Geocarto International (2022): 1-31.
 
 
 
