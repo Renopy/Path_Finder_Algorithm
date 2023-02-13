@@ -23,6 +23,8 @@ Because PFA is stochastic, like many other meta-heuristic algorithms of a simila
 The algorithm can be easily used as following steps:
 
 1) import the package
+
+
 import PFA from Pathfinder
 
 
