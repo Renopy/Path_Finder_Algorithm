@@ -1,9 +1,6 @@
 # Path_Finder_Algorithm (PFA)
 Pathfinder Algorithm (PFA) is a swarm-based meta-heuristic technique which is employed to solve optimization problems of various structures. This technique simulates the leadership hierarchy of swarming to locate the best food source or prey, which is inspired by the group movements of various animal species.
 
-For a long time, many scientists have been particularly interested in the searching, exploitation, and hunting capabilities of animal swarms. In a swarm, every action is carried out as a result of everyone acting in unison. Additionally, the swarm is led by a single person who also controls several acts.
-Additionally, this person drives the herds to destinations including grass, water, and feeding areas.Depending on the ability to meet the goal, the leader may change [1]. 
-
 # Description
 The Pathfinder Algorithm (PFA), a swarm-based optimization algorithm inspired by the way in which animals work together to identify the best food sources, was introduced by Yapici and Cetinkaya in 2019. The collection of solutions for an n-dimensional space problem in this method represents a herd of animals, whose motions are controlled by the leader and other members. The members of this algorithm are updated using the following equation during each of its N iterations: 
 
@@ -21,11 +18,19 @@ xi represents the position vector of the i-th member, xj the position vector of 
 where K_Max is the total number of repetitions, Dij is the distance between two members, u1 and u2 are random vectors generated between -1 and 1, and r3 is a vector of random numbers between zero and one.
 
 # Example
+Because PFA is stochastic, like many other meta-heuristic algorithms of a similar nature, each time you run it, you will have a slightly different output. The output is the best solution for which the minimum Loss Function was obtained.
+
+The algorithm can be easily used as following steps:
+
+1) import the package
+import PFA from Pathfinder
+
+
 
 
 
 # References
 1. Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
-2. 
+2. Nosratpour, Reza, Majid Rahimzadegan, and Niloufar Beikahmadi. "Introducing a merged precipitation satellite model using satellite precipitation products, land surface temperature, and precipitable water vapor." Geocarto International (2022): 1-31.
 
 
