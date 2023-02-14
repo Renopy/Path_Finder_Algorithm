@@ -75,12 +75,17 @@ initialize_iteration = 100
 num_of_parameters = 3  # Here we need 3 parameters to run the model correctly 
 modle = Pathfinder.model(fitness_function  , num_of_parameters   , initialize_iteration  , PFA_iteration ,alpha =1  , beta=1 , converging_threshold = 0.001)
 ```
-5) run the model
+5) run the model abd predict
 
 
 ```python
 model.fit() 
+weights = model.solution
+pred = model_mlr(weights , x_test)  # here we used a MLR model 
 ```
+
+
+
 
 
 
