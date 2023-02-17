@@ -8,16 +8,16 @@ import hydroeval as he
 import scipy.stats as sci
 
 def evaluate( Obs , Model ) :
+    result = pd.DataFrame()
+    result['nse']  = 1 - ( numpy.sum((Model-Obs)**2) / numpy.sum((Obs-numpy.mean(Obs ))**2 ))
+    result['rmse'] = numpy.mean((Obs-Model)**2)**0.5
+    result['mbe']  = numpy.mean( Model - Obs)
+    result['mae'] = numpy.mean( numpy.absolute( Model - Obs))
+    result['pbias'] =  100*numpy.sum(Model-Obs)/numpy.sum(Obs) 
+    result['kge'] ,result['r'], result['alpha' ,result['beta'] = he.evaluator(he.kge, Model, Obs)
+    result['spearman'] = sci.spearmanr(Obs , Model)[0]
     
-    nse  = 1 - ( numpy.sum((Model-Obs)**2) / numpy.sum((Obs-numpy.mean(Obs ))**2 ))
-    rmse = numpy.mean((Obs-Model)**2)**0.5
-    mbe  = numpy.mean( Model - Obs)
-    mae = numpy.mean( numpy.absolute( Model - Obs))
-    pbias =  100*numpy.sum(Model-Obs)/numpy.sum(Obs) 
-    kge ,r, alpha ,beta = he.evaluator(he.kge, Model, Obs)
-    spearman = sci.spearmanr(Obs , Model)[0]
+    result['std_obs'] =  numpy.std(Obs)
+    result['std_model'] =  numpy.std(Model)
     
-    std_obs =  numpy.std(Obs)
-    std_model =  numpy.std(Model)
-    
-    return  { 'r' :  r[0]  , 'rmse' : rmse  , 'nse' :  nse  , 'kge' : kge[0] , 'mbe': mbe , 'mae' :  mae ,  'pbias': pbias  , 'spearman' : spearman , 'std_obs' :  std_obs    , 'std_model' :std_model   }
+    return  result
