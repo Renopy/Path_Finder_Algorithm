@@ -7,7 +7,7 @@ from math import *
 import hydroeval as he
 import scipy.stats as sci
 
-def eval( Obs , Model ) :
+def evaluate( Obs , Model ) :
     
     nse  = 1 - ( numpy.sum((Model-Obs)**2) / numpy.sum((Obs-numpy.mean(Obs ))**2 ))
     rmse = numpy.mean((Obs-Model)**2)**0.5
