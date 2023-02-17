@@ -84,9 +84,13 @@ weights = model.solution
 pred = model_mlr(weights , x_test)  # here we used a MLR model 
 ```
 
+6) Using Evaluation function you can assess the accuracy of the model
 
-
-
+```python
+from PFA import evaluation
+results = evaluation.evaluate(obs_test , pred)
+```
+print(result.r)
 
 
 ## References
