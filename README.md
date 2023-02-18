@@ -22,7 +22,7 @@ Because PFA is stochastic, like many other meta-heuristic algorithms of a simila
 
 The algorithm can be easily used as following steps:
 
-## 1) Import the packages
+1) Import the packages
 
 ```python
 from PFA import Pathfinder
@@ -30,7 +30,7 @@ import numpy as np
 import pandas as pd
 import numpy
 ```
-## 2) Prepare the input data
+2) Prepare the input data
 ```python
 Excel_cal = pd.read_excel("../Cal.xlsx")
 
@@ -50,7 +50,7 @@ obs_test = Excel_test[ obs_key ]
 ```
 
 
-## 3) Define a model and Loss Function 
+3) Define a model and Loss Function 
 
 ```python
 
@@ -70,14 +70,14 @@ def fitness_function(Solution):
     return  RMSE
 ```
 
-## 4) build the model
+4) build the model
 
 
 ```python
 num_of_parameters = 3  # Here we need 3 parameters to run the model correctly 
 model = Pathfinder.model(fitness_function  , num_of_parameters = 100   , initialize_iteration = 100  , PFA_iteration ,alpha =1  , beta=1 , converging_threshold = 0.01)
 ```
-## 5) run the model abd predict
+5) run the model abd predict
 
 
 ```python
@@ -86,7 +86,7 @@ weights = model.solution
 pred = model_mlr(weights , x_test)  # here we used a MLR model 
 ```
 
-## 6) Use Evaluation function to assess the accuracy of the model
+6) Use Evaluation function to assess the accuracy of the model
 
 ```python
 from PFA import evaluation
