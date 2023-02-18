@@ -51,10 +51,11 @@ class model():
         self.best_sol=Dict[str(self.num_of_mem)]
         self.best_fit=self.fitness_function(Dict[str(self.num_of_mem)])
         
-        for i in Dict :
-            print(i , Dict[i])
+        # for i in Dict :
+        #     print(i , Dict[i])
         
-        print("---Path finder---")
+
+        
         position={}
         
         position["0"]=Dict[str(self.num_of_mem-1)]
@@ -86,7 +87,7 @@ class model():
                 sol =  sol+R1*dif+R2*dpos+epsilon
                 self.fitness=self.fitness_function(sol )
                 if self.fitness<Loss[str(mem)]:
-                    print(it,"of",self.IT2)
+                    # print(it,"of",self.IT2)
                     Dict[str(mem)] = sol
                     Loss[str(mem)] = self.fitness
                 
@@ -95,8 +96,7 @@ class model():
                     self.best_fit = self.fitness
                     self.Conv_curve.append(self.fitness)
                     
-                    print("Solution :",sol)
-                    print("fitness = ",self.fitness)
+
                 position[str(it)] = self.best_sol
             position[str(it+1)] = self.best_sol
         
