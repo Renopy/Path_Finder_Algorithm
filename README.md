@@ -22,14 +22,15 @@ Because PFA is stochastic, like many other meta-heuristic algorithms of a simila
 
 The algorithm can be easily used as following steps:
 
-1) Import the packages
+## 1) Import the packages
 
 ```python
 from PFA import Pathfinder
 import numpy as np
 import pandas as pd
+import numpy
 ```
-2) Prepare the input data
+## 2) Prepare the input data
 ```python
 Excel_cal = pd.read_excel("../Cal.xlsx")
 
@@ -49,7 +50,7 @@ obs_test = Excel_test[ obs_key ]
 ```
 
 
-3) Define a model and Loss Function 
+## 3) Define a model and Loss Function 
 
 ```python
 
@@ -63,21 +64,20 @@ def fitness_function(Solution):
 
     wx =  model_mlr(w =Solution  ,   x = x_train  )
 
-    RMSE = numpy.mean(wx-obs_train)**0.5
+    RMSE = numpy.mean((wx-obs_train**2))**0.5
 
     
     return  RMSE
 ```
 
-4) build the model
+## 4) build the model
 
 
 ```python
-initialize_iteration = 100
 num_of_parameters = 3  # Here we need 3 parameters to run the model correctly 
-modle = Pathfinder.model(fitness_function  , num_of_parameters   , initialize_iteration  , PFA_iteration ,alpha =1  , beta=1 , converging_threshold = 0.001)
+model = Pathfinder.model(fitness_function  , num_of_parameters = 100   , initialize_iteration = 100  , PFA_iteration ,alpha =1  , beta=1 , converging_threshold = 0.01)
 ```
-5) run the model abd predict
+## 5) run the model abd predict
 
 
 ```python
@@ -86,7 +86,7 @@ weights = model.solution
 pred = model_mlr(weights , x_test)  # here we used a MLR model 
 ```
 
-6) Using Evaluation function you can assess the accuracy of the model
+## 6) Use Evaluation function to assess the accuracy of the model
 
 ```python
 from PFA import evaluation
@@ -96,9 +96,13 @@ results = evaluation.evaluate(obs_test , pred)
 
 ```python
 
-print('correlation = 'result.r)
-out [1] =  
+print('correlation = ' , float(result.r))
+out [1]:
+        correlation = 0.92
 ```
+
+This alorithm have been developed flexible to use different models and loss functions 
+
 
 ## References
 [^1]: Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
