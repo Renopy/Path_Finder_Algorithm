@@ -48,25 +48,6 @@ obs_test = Excel_test[ obs_key ]
 
 ```
 
-```python
->>> Excel_cal.head()
-Out[9]: 
-     obs         x1       x2  x3
-0  29.71  24.747352  26.5625  14
-1  55.60  33.669269  37.5625  56
-2  91.71  50.729824  52.8750  16
-3  16.10  31.897742  26.4375  20
-4  10.51  13.238434   7.6875  11
-
->>> Excel_test.head()
-Out[10]: 
-   Unnamed: 0   name    obs         x1       x2  x3
-0           0  Abali  24.61  41.990301  18.0625  25
-1           1  Abali  14.72  17.465709   7.9375  18
-2           2  Abali  58.82  34.448659  25.0000  33
-3           3  Abali  12.42   7.769999   8.3750  12
-4           4  Abali  52.60  30.612923  18.0000  14
-```
 
 3) Define a model and Loss Function 
 
@@ -110,9 +91,14 @@ pred = model_mlr(weights , x_test)  # here we used a MLR model
 ```python
 from PFA import evaluation
 results = evaluation.evaluate(obs_test , pred)
-```
-print(result.r)
 
+```
+
+```python
+
+print('correlation = 'result.r)
+out [1] =  
+```
 
 ## References
 [^1]: Yapici, Hamza, and Nurettin Cetinkaya. "A new meta-heuristic optimizer: Pathfinder algorithm." Applied soft computing 78 (2019): 545-568.
