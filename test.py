@@ -16,9 +16,9 @@ import numpy
 
 
 
-Excel_cal = pd.read_excel("C:/Users/Reza/OneDrive/Desktop/Cal.xlsx")
+Excel_cal = pd.read_excel("../Cal.xlsx")
 
-Excel_test = pd.read_excel("C:/Users/Reza/OneDrive/Desktop/test (3).xlsx")
+Excel_test = pd.read_excel("../test.xlsx")
 
 # choose the keys for the input variables (X) and observation
 var_keys = [ 'x1' , 'x2' ] 
